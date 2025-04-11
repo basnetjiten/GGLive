@@ -1,26 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Live Cricket Stream</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Stream Hub</title>
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
+    * {
+      box-sizing: border-box;
     }
-    iframe {
-      width: 100%;
-      height: 100%;
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f2027;
+      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #ccc;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #1e2a38;
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .title {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #00c6ff;
+      background-image: linear-gradient(45deg, #00c6ff, #0072ff);
+      color: white;
+      padding: 0.7rem 1.2rem;
       border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background-image: linear-gradient(45deg, #0072ff, #00c6ff);
+    }
+
+    footer {
+      text-align: center;
+      color: #aaa;
+      padding: 1rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <iframe 
-    src="https://topembed.pw/channel/WillowTV[USA]" 
-    allowfullscreen
-    sandbox="allow-same-origin allow-scripts allow-forms">
-  </iframe>
+
+  <header>
+    <h1>Live Stream Hub</h1>
+    <p>Watch your favorite channels live, anytime, anywhere.</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <div class="title">Willow TV (USA)</div>
+      <a class="button" href="https://cr7tv.github.io/12/cric.html?src=https://topembed.pw/channel/WillowTV[USA]" target="_blank">Watch Now</a>
+    </div>
+
+    <div class="card">
+      <div class="title">Sky Sports Cricket</div>
+      <a class="button" href="https://cr7tv.github.io/12/cric.html?src=https://topembed.pw/channel/SkySportsCricket" target="_blank">Watch Now</a>
+    </div>
+
+    <div class="card">
+      <div class="title">Star Sports 1</div>
+      <a class="button" href="https://cr7tv.github.io/12/cric.html?src=https://topembed.pw/channel/StarSports1" target="_blank">Watch Now</a>
+    </div>
+
+    <div class="card">
+      <div class="title">Ten Sports</div>
+      <a class="button" href="https://cr7tv.github.io/12/cric.html?src=https://topembed.pw/channel/TenSports" target="_blank">Watch Now</a>
+    </div>
+
+    <div class="card">
+      <div class="title">ESPN HD</div>
+      <a class="button" href="https://cr7tv.github.io/12/cric.html?src=https://topembed.pw/channel/ESPNHD" target="_blank">Watch Now</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Live Stream Hub – All links open in a new tab.
+  </footer>
+
 </body>
 </html>
