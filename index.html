@@ -17,6 +17,7 @@
       background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
       color: #fff;
       line-height: 1.6;
+      scroll-behavior: smooth; /* Enable smooth scrolling */
     }
 
     header {
@@ -34,7 +35,22 @@
       font-size: clamp(0.9rem, 2vw, 1.1rem);
     }
 
-    .container {
+    .player-container {
+      max-width: 90%;
+      margin: 2rem auto;
+      aspect-ratio: 16 / 9; /* Standard video aspect ratio */
+      border: 3px solid #00c6ff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .menu {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
@@ -79,21 +95,6 @@
       background-image: linear-gradient(45deg, #0072ff, #00c6ff);
     }
 
-    .player-container {
-      max-width: 90%;
-      margin: 2rem auto;
-      aspect-ratio: 16 / 9; /* Standard video aspect ratio */
-      border: 3px solid #00c6ff;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
     footer {
       text-align: center;
       color: #aaa;
@@ -106,7 +107,7 @@
         padding: 1.5rem 1rem;
       }
 
-      .container {
+      .menu {
         padding: 1rem;
       }
 
@@ -123,38 +124,6 @@
     <p>Watch your favorite channels live, anytime, right here.</p>
   </header>
 
-  <div class="container">
-    <div class="card">
-      <div class="title">Willow TV (USA)</div>
-      <button class="button" onclick="loadStream('https://topembed.pw/channel/WillowTV[USA]')">Watch Now</button>
-    </div>
-
-    <div class="card">
-      <div class="title">Sky Sports Premier</div>
-      <button class="button" onclick="loadStream('https://topembed.pw/channel/SkySportsPremierLeague%5BUK%5D')">Watch Now</button>
-    </div>
-
-    <div class="card">
-      <div class="title">Sky Sports 3</div>
-      <button class="button" onclick="loadStream('https://topembed.pw/channel/SkySport3%5BNewZealand%5D')">Watch Now</button>
-    </div>
-
-    <div class="card">
-      <div class="title">Star Sports 1</div>
-      <button class="button" onclick="loadStream('https://topembed.pw/channel/SkySportsPremierLeague%5BUK%5D')">Watch Now</button>
-    </div>
-
-    <div class="card">
-      <div class="title">Astro Cricket</div>
-      <button class="button" onclick="loadStream('https://topembed.pw/channel/AstroCricket%5BMalaysia%5D')">Watch Now</button>
-    </div>
-
-    <div class="card">
-      <div class="title">ESPN HD</div>
-      <button class="button" onclick="loadStream('https://streamtp4.com/global1.php?stream=espn')">Watch Now</button>
-    </div>
-  </div>
-
   <!-- Video Player -->
   <div class="player-container" id="playerContainer">
     <iframe id="streamPlayer"
@@ -164,13 +133,50 @@
     </iframe>
   </div>
 
+  <!-- Menu -->
+  <div class="menu">
+    <div class="card">
+      <div class="title">Willow TV (USA)</div>
+      <button class="button" onclick="loadStreamAndScroll('https://topembed.pw/channel/WillowTV[USA]')">Watch Now</button>
+    </div>
+
+    <div class="card">
+      <div class="title">Sky Sports Premier</div>
+      <button class="button" onclick="loadStreamAndScroll('https://topembed.pw/channel/SkySportsPremierLeague%5BUK%5D')">Watch Now</button>
+    </div>
+
+    <div class="card">
+      <div class="title">Sky Sports 3</div>
+      <button class="button" onclick="loadStreamAndScroll('https://topembed.pw/channel/SkySport3%5BNewZealand%5D')">Watch Now</button>
+    </div>
+
+    <div class="card">
+      <div class="title">Star Sports 1</div>
+      <button class="button" onclick="loadStreamAndScroll('https://topembed.pw/channel/SkySportsPremierLeague%5BUK%5D')">Watch Now</button>
+    </div>
+
+    <div class="card">
+      <div class="title">Astro Cricket</div>
+      <button class="button" onclick="loadStreamAndScroll('https://topembed.pw/channel/AstroCricket%5BMalaysia%5D')">Watch Now</button>
+    </div>
+
+    <div class="card">
+      <div class="title">ESPN HD</div>
+      <button class="button" onclick="loadStreamAndScroll('https://streamtp4.com/global1.php?stream=espn')">Watch Now</button>
+    </div>
+  </div>
+
   <footer>
     © 2025 Live Stream Hub – Streams powered by external sources.
   </footer>
 
   <script>
-    function loadStream(src) {
+    function loadStreamAndScroll(src) {
+      // Load the stream into the player
       document.getElementById('streamPlayer').src = src;
+
+      // Scroll to the video player smoothly
+      document.getElementById('playerContainer').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
