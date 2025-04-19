@@ -186,5 +186,49 @@
     }
   </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script>
+    // Disable Right Click
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    }, false);
+
+    // Block F12, Ctrl+Shift+I/J/U
+    document.addEventListener('keydown', function(e) {
+        if (
+            e.keyCode === 123 || // F12
+            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I or J
+            (e.ctrlKey && e.keyCode === 85) // Ctrl+U
+        ) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // Detect DevTools using console property
+    let devtoolsOpen = false;
+    const element = new Image();
+    Object.defineProperty(element, 'id', {
+        get: function() {
+            devtoolsOpen = true;
+            setTimeout(() => {
+                location.reload();
+            }, 100);
+        }
+    });
+
+    // Run checker on loop
+    setInterval(function() {
+        devtoolsOpen = false;
+        console.log(element);
+        if (devtoolsOpen) {
+            location.reload();
+        }
+    }, 1000);
+
+
+</script>
+  
+
 </body>
 </html>
